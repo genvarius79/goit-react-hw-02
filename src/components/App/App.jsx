@@ -20,6 +20,7 @@ export default function App() {
     });
   }
   const totalFeedback = reviews.good + reviews.neutral + reviews.bad;
+  const positiveReviews = Math.round((reviews.good / totalFeedback) * 100);
 
   function resetFeedback() {
     setReviews({ good: 0, neutral: 0, bad: 0 });
@@ -38,7 +39,11 @@ export default function App() {
         resetFeedback={resetFeedback}
       ></Options>
       {totalFeedback ? (
-        <Feedback reviews={reviews} totalFeedback={totalFeedback}></Feedback>
+        <Feedback
+          reviews={reviews}
+          totalFeedback={totalFeedback}
+          positiveReviews={positiveReviews}
+        ></Feedback>
       ) : (
         <Notification></Notification>
       )}

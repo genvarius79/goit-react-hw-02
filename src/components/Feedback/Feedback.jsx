@@ -2,9 +2,8 @@ import css from './Feedback.module.css';
 export default function Feedback({
   reviews: { good, neutral, bad },
   totalFeedback,
+  positiveReviews,
 }) {
-  const positiveReviews = Math.round((good / totalFeedback) * 100);
-
   return (
     <div>
       <p className={css.feedback}>Good: {good} </p>
